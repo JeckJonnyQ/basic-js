@@ -18,7 +18,9 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 function dateSample(sampleActivity) {
-  if (typeof (sampleActivity) !== 'string') {
+  if (typeof sampleActivity !== 'string'
+    || isNaN(parseFloat(sampleActivity))
+    || sampleActivity.trim().length === 0) {
     return false;
   }
   if (sampleActivity <= 0 || sampleActivity > 15) {
